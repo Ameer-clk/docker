@@ -1,0 +1,11 @@
+---
+- hosts: web 
+  tasks:
+
+  - name: "check items"
+    debug:
+      msg: "An item: {{ item }}"
+    with_items:
+    - docker build image 
+    - docker rum image
+    

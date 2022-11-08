@@ -1,0 +1,22 @@
+---
+- hosts: web 
+  become: yes
+  become_method: yes
+  tasks: 
+
+  - name: Install docker 
+    yum:
+     name: docker
+     state: latest 
+     update_cache: yes
+  notify: started 
+
+  
+  handlers:
+
+  - name: start docker 
+    service: 
+      name: docker 
+      state: started
+      
+  
